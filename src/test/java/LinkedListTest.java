@@ -4,6 +4,8 @@ import main.java.LinkedLists.LinkedList;
 import main.java.LinkedLists.Node;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertEquals;
+
 /**
  * Created by rex on 8/11/16.
  */
@@ -47,5 +49,20 @@ public class LinkedListTest {
 
         linkedList.deleteDuplicatesWithoutSet(0);
         linkedList.display();
+    }
+
+    //Implement an algo to find the kth to the last element of a singly linked list.
+    @Test
+    public void test2_2(){
+
+        LinkedList<Integer> list = new LinkedList<>();
+
+        for (int i = 0 ; i < 10; i++){
+            list.append(new Node<Integer>(i));
+        }
+
+        assertEquals(list.findKthFromLastElement(2).intValue(), 8);
+
+        assertEquals(list.findKthFromLastElementRecursivley(list.getHead(), 2), 10);
     }
 }

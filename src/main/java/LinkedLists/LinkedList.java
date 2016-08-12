@@ -104,6 +104,53 @@ public class LinkedList<T> {
             curr = curr.next;
         }
     }
+    //old dumb implementaiton
+//    public T findKthFromLastElement(int kIndex){
+//        Node<T> runner = head;
+//        int numberOfElements =0;
+//        while(runner != null){
+//            numberOfElements++;
+//            runner = runner.next;
+//        }
+//        int positionOfElement = numberOfElements - kIndex;
+//
+//        runner = head;
+//        int index = 0;
+//        while(index != positionOfElement){
+//            runner = runner.next;
+//            index++;
+//        }
+//        return runner.t;
+//    }
+
+    //Start a runner k elements ahead, it will end up hitting null k items away, and you can just then print out curr
+    public T findKthFromLastElement(int kIndex){
+        if(isEmpty()) return null;
+        Node<T> curr = head;
+        Node<T> runner = head;
+        int index = 0;
+        while(runner != null && index < kIndex ){
+            runner = runner.next;
+            index++;
+        }
+        while (runner != null){
+            curr = curr.next;
+            runner = runner.next;
+        }
+        return curr.t;
+    }
+
+    public int findKthFromLastElementRecursivley(Node<T> node, int kIndex){
+
+        if(node == null){
+            return 0;
+        }
+        int i = findKthFromLastElementRecursivley(node.next, kIndex) + 1;
+        if(i == kIndex){
+            System.out.println(node.toString());
+        }
+        return i;
+    }
 
     public void display(){
         Node<T> temp = head;
@@ -112,6 +159,12 @@ public class LinkedList<T> {
             temp = temp.next;
         }
     }
+
+    public Node<T> getHead() {
+        return head;
+    }
+
+
 
 
 }
