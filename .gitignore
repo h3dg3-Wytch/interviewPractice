@@ -1,7 +1,7 @@
 *.class
 *.iml
-build/
-out/
+/build/
+/out/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
