@@ -1,7 +1,8 @@
 *.class
 *.iml
-/build/
-/out/
+
+build/
+out/
 .gradle
 
 # Mobile Tools for Java (J2ME)
