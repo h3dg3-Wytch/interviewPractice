@@ -1,5 +1,6 @@
 package test.java;
 
+import main.java.LinkedLists.HashTable;
 import main.java.LinkedLists.LinkedList;
 import main.java.LinkedLists.Node;
 import org.junit.Test;
@@ -65,4 +66,16 @@ public class LinkedListTest {
 
         assertEquals(list.findKthFromLastElementRecursivley(list.getHead(), 2), 10);
     }
+
+    @Test
+    public void hashTableTest(){
+        HashTable<Integer, String> table = new HashTable<>();
+        table.put(1, "hello");
+        table.display();
+        table.put(1, "world");
+        table.display();
+
+    }
+
+
 }
