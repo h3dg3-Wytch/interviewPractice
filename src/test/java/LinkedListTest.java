@@ -1,8 +1,6 @@
-package test.java;
 
-import main.java.LinkedLists.HashTable;
-import main.java.LinkedLists.LinkedList;
-import main.java.LinkedLists.Node;
+import LinkedLists.LinkedList;
+import LinkedLists.Node;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -12,12 +10,14 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class LinkedListTest {
 
-    @Test
+
+
+    @Test   
     public void testLinkedList(){
-        LinkedList<Integer> linkedList = new LinkedList<>();
+        LinkedList<Integer> linkedList = new LinkedList<Integer>();
 
         for(int i = 0; i < 50; i++){
-            linkedList.append(new Node<>(i));
+            linkedList.append(new Node<Integer>(i));
         }
         linkedList.display();
 
@@ -36,27 +36,27 @@ public class LinkedListTest {
 
     @Test
     public void test2_1(){
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        for(int i = 0; i < 100; i++){
-            linkedList.append(new Node<Integer>(0));
-        }
-
-        linkedList.deleteDuplicates(0);
-        linkedList.display();
-
-        for(int i = 0; i < 3; i++){
-            linkedList.append(new Node<Integer>(0));
-        }
-
-        linkedList.deleteDuplicatesWithoutSet(0);
-        linkedList.display();
+//        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+//        for(int i = 0; i < 100; i++){
+//            linkedList.append(new Node<Integer>(0));
+//        }
+//
+//        linkedList.deleteDuplicates(0);
+//        linkedList.display();
+//
+//        for(int i = 0; i < 3; i++){
+//            linkedList.append(new Node<Integer>(0));
+//        }
+//
+//        linkedList.deleteDuplicatesWithoutSet(0);
+//        linkedList.display();
     }
 
     //Implement an algo to find the kth to the last element of a singly linked list.
     @Test
     public void test2_2(){
 
-        LinkedList<Integer> list = new LinkedList<>();
+        LinkedList<Integer> list = new LinkedList<Integer>();
 
         for (int i = 0 ; i < 10; i++){
             list.append(new Node<Integer>(i));
@@ -67,15 +67,25 @@ public class LinkedListTest {
         assertEquals(list.findKthFromLastElementRecursivley(list.getHead(), 2), 10);
     }
 
+    //Delete a node from the middle of a linkedlist with only reference to that node
     @Test
-    public void hashTableTest(){
-        HashTable<Integer, String> table = new HashTable<>();
-        table.put(1, "hello");
-        table.display();
-        table.put(1, "world");
-        table.display();
+    public void test2_3(){
+
+        LinkedList<Integer> list = new LinkedList<Integer>();
+
+        for (int i = 0 ; i < 10; i++){
+            list.append(new Node<Integer>(i));
+        }
+
+        int index = 0;
+        Node<Integer> runner = list.getHead();
+        while (index < 3){
+            runner = runner.getNext();
+            index++;
+        }
+
+        list.deleteFromMiddle(runner);
+
 
     }
-
-
 }

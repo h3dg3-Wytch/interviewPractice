@@ -1,4 +1,4 @@
-package main.java.LinkedLists;
+package LinkedLists;
 
 /**
  * Created by rex on 8/11/16.
@@ -15,6 +15,10 @@ public class Node<T> {
     public Node(Node<T> next, T t){
         this.next = next;
         this.t = t;
+    }
+
+    public Node<T> getNext() {
+        return next;
     }
 
     public String toString(){

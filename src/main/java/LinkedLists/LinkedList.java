@@ -1,4 +1,4 @@
-package main.java.LinkedLists;
+package LinkedLists;
 
 import java.util.HashSet;
 
@@ -7,7 +7,7 @@ import java.util.HashSet;
  */
 public class LinkedList<T> {
 
-    private Node<T> head;
+    Node<T> head;
 
     public boolean isEmpty(){
         return head == null;
@@ -74,7 +74,7 @@ public class LinkedList<T> {
 
     public void deleteDuplicates(T t){
         if(isEmpty()) return;
-        HashSet<T> set = new HashSet<>();
+        HashSet<T> set = new HashSet<T>();
         Node<T> prev = null;
         Node<T> curr = head;
         while(curr != null){
@@ -150,6 +150,15 @@ public class LinkedList<T> {
             System.out.println(node.toString());
         }
         return i;
+    }
+
+    public void deleteFromMiddle(Node<T> node){
+        if(node.next == null){
+            return;
+        }
+        node.t = node.next.t;
+        node = node.next;
+        deleteFromMiddle(node);
     }
 
     public void display(){
