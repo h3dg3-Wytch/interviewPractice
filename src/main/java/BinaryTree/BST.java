@@ -60,6 +60,29 @@ public class BST {
         return focusNode;
     }
 
+    public boolean delete(int key){
+        //Start at the top of the tree
+        Node focusNode = root;
+        Node parent = root;
+
+        //WHen searching for a Node, this will tell us wther to search us either left or right
+        boolean isItALeftChild = true;
+
+        //find the node
+        while(focusNode.num != key){
+            if(key < focusNode.num){
+                isItALeftChild = true;
+                focusNode = focusNode.left;
+            }else{
+                isItALeftChild = false;
+                focusNode = focusNode.right;
+            }
+            if(focusNode == null)
+                return false;
+        }
+
+    }
+
     public void preOrderTraversal(Node focusNode){
 
         if(focusNode != null){

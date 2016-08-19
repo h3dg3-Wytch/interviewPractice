@@ -86,6 +86,5 @@ public class LinkedListTest {
 
         list.deleteFromMiddle(runner);
 
-
     }
 }
