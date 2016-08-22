@@ -1,4 +1,4 @@
-package main.java.LinkedLists;
+package LinkedLists;
 
 import java.lang.reflect.Array;
 
@@ -30,9 +30,10 @@ public class HashTable<K, V> {
         table[position] = value;
     }
 
-    public V get(K key){
-        
-    }
+//    public V get(K key){
+//
+//    }
+
     public void display(){
         System.out.print("Current Values:");
         for(int i = 0 ; i < table.length; i++){

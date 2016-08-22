@@ -81,6 +81,34 @@ public class BST {
                 return false;
         }
 
+        if(focusNode == null){
+            return false;
+        }
+
+        if(focusNode.left == null && focusNode.right == null){
+
+            if(focusNode == root){
+                root = null;
+            }else if(isItALeftChild){
+                parent.left = null;
+            }else{
+                parent.right = null;
+            }
+
+        }else if(focusNode.right == null){
+            if(focusNode == root){
+                root = root.left;
+            }else if(isItALeftChild){
+                parent.left = focusNode.right;
+            }else{
+                parent.right = focusNode.left;
+            }
+        }else if(focusNode.left == null){
+
+        }else{
+
+        }
+        return true;
     }
 
     public void preOrderTraversal(Node focusNode){
@@ -92,7 +120,6 @@ public class BST {
         }
 
     }
-
     public void inFixTraversal(Node focusNode){
 
         if(focusNode != null){
@@ -101,7 +128,6 @@ public class BST {
             inFixTraversal(focusNode.right);
         }
     }
-
     public void postOrderTraversal(Node focusNode){
         if(focusNode != null){
             postOrderTraversal(focusNode.left);
@@ -109,5 +135,4 @@ public class BST {
             System.out.println(focusNode.num);
         }
     }
-
 }

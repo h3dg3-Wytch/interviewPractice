@@ -38,5 +38,20 @@ public class BSTTest {
         }
         assertEquals(tree.find(3).getNum(), 3);
     }
+    @Test
+    public void removal(){
+        BST tree = new BST();
+
+        tree.addNode(new Node(0));
+        tree.addNode(new Node(1));
+        tree.addNode(new Node(2));
+
+        tree.inFixTraversal(tree.root);
+
+        assertEquals(tree.delete(2), true);
+
+        System.out.println("Deleted num 2");
+        tree.inFixTraversal(tree.root);
+    }
 
 }
