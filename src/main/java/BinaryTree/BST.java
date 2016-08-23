@@ -1,13 +1,11 @@
 package BinaryTree;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-
 /**
  * Created by h3dg3wytch on 8/19/16.
  */
 public class BST {
 
-     public Node root;
+    public Node root;
 
     public boolean isEmpty(){
         return root == null;
@@ -69,7 +67,10 @@ public class BST {
         boolean isItALeftChild = true;
 
         //find the node
-        while(focusNode.num != key){
+        while(focusNode.num != key && focusNode != null){
+
+            parent = focusNode;
+
             if(key < focusNode.num){
                 isItALeftChild = true;
                 focusNode = focusNode.left;
@@ -97,18 +98,49 @@ public class BST {
 
         }else if(focusNode.right == null){
             if(focusNode == root){
-                root = root.left;
+                root = focusNode.left;
             }else if(isItALeftChild){
-                parent.left = focusNode.right;
+                parent.left = focusNode.left;
             }else{
                 parent.right = focusNode.left;
             }
         }else if(focusNode.left == null){
-
+            if(focusNode == root){
+                root = focusNode.right;
+            }else if(isItALeftChild){
+                parent.left = focusNode.right;
+            }else{
+                parent.right = focusNode.right;
+            }
         }else{
-
+            Node replacement = getReplacementNode(focusNode);
+            if(focusNode == root){
+                root = replacement;
+            }else if(isItALeftChild){
+                parent.left = replacement;
+            }else{
+                parent.right = replacement;
+            }
+            replacement.left = focusNode.left;
         }
         return true;
+    }
+
+    private Node getReplacementNode(Node replacedNode) {
+        Node replacementParent = replacedNode;
+        Node replacement = replacedNode;
+
+        Node focusNode = replacement.right;
+        while(focusNode != null){
+            replacementParent = replacement;
+            replacement = focusNode;
+            focusNode = focusNode.left;
+        }
+        if(replacement != replacedNode.right){
+            replacementParent.left = replacement.right;
+            replacement.right = replacementParent.right;
+        }
+        return  replacement;
     }
 
     public void preOrderTraversal(Node focusNode){
