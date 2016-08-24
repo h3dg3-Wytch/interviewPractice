@@ -58,70 +58,129 @@ public class BST {
         return focusNode;
     }
 
-    public boolean delete(int key){
-        //Start at the top of the tree
-        Node focusNode = root;
-        Node parent = root;
+//    public boolean delete(int key){
+//        //Start at the top of the tree
+//        Node focusNode = root;
+//        Node parent = root;
+//
+//        //WHen searching for a Node, this will tell us wther to search us either left or right
+//        boolean isItALeftChild = true;
+//
+//        //find the node
+//        while(focusNode.num != key && focusNode != null){
+//
+//            parent = focusNode;
+//
+//            if(key < focusNode.num){
+//                isItALeftChild = true;
+//                focusNode = focusNode.left;
+//            }else{
+//                isItALeftChild = false;
+//                focusNode = focusNode.right;
+//            }
+//            if(focusNode == null)
+//                return false;
+//        }
+//
+//        if(focusNode == null){
+//            return false;
+//        }
+//
+//        if(focusNode.left == null && focusNode.right == null){
+//
+//            if(focusNode == root){
+//                root = null;
+//            }else if(isItALeftChild){
+//                parent.left = null;
+//            }else{
+//                parent.right = null;
+//            }
+//
+//        }else if(focusNode.right == null){
+//            if(focusNode == root){
+//                root = focusNode.left;
+//            }else if(isItALeftChild){
+//                parent.left = focusNode.left;
+//            }else{
+//                parent.right = focusNode.left;
+//            }
+//        }else if(focusNode.left == null){
+//            if(focusNode == root){
+//                root = focusNode.right;
+//            }else if(isItALeftChild){
+//                parent.left = focusNode.right;
+//            }else{
+//                parent.right = focusNode.right;
+//            }
+//        }else{
+//            Node replacement = getReplacementNode(focusNode);
+//            if(focusNode == root){
+//                root = replacement;
+//            }else if(isItALeftChild){
+//                parent.left = replacement;
+//            }else{
+//                parent.right = replacement;
+//            }
+//            replacement.left = focusNode.left;
+//        }
+//        return true;
+//    }
 
-        //WHen searching for a Node, this will tell us wther to search us either left or right
+
+    private boolean remove(int key){
+        Node parent = root;
+        Node focusRoot = root;
+
         boolean isItALeftChild = true;
 
-        //find the node
-        while(focusNode.num != key && focusNode != null){
-
-            parent = focusNode;
-
-            if(key < focusNode.num){
+        while (focusRoot.num != key){
+            parent = focusRoot;
+            if(key < focusRoot.num){
                 isItALeftChild = true;
-                focusNode = focusNode.left;
+                focusRoot = focusRoot.left;
             }else{
                 isItALeftChild = false;
-                focusNode = focusNode.right;
+                focusRoot = focusRoot.right;
             }
-            if(focusNode == null)
+            if(focusRoot == null){
                 return false;
+            }
         }
 
-        if(focusNode == null){
-            return false;
-        }
-
-        if(focusNode.left == null && focusNode.right == null){
-
-            if(focusNode == root){
+        if(focusRoot.left == null && focusRoot.right == null){
+            if(focusRoot == root){
                 root = null;
             }else if(isItALeftChild){
                 parent.left = null;
             }else{
                 parent.right = null;
             }
-
-        }else if(focusNode.right == null){
-            if(focusNode == root){
-                root = focusNode.left;
+        }else if(focusRoot.right == null){
+            if(focusRoot == root){
+                root =  focusRoot.left;
             }else if(isItALeftChild){
-                parent.left = focusNode.left;
+                parent.left = focusRoot.left;
             }else{
-                parent.right = focusNode.left;
+                parent.right = focusRoot.left;
             }
-        }else if(focusNode.left == null){
-            if(focusNode == root){
-                root = focusNode.right;
+        }else if(focusRoot.left == null){
+            if(focusRoot == root){
+                root = focusRoot.right;
             }else if(isItALeftChild){
-                parent.left = focusNode.right;
+                parent.left = focusRoot.right;
             }else{
-                parent.right = focusNode.right;
+                parent.right = focusRoot.right;
             }
         }else{
-            Node replacement = getReplacementNode(focusNode);
-            if(focusNode == root){
-                root = replacement;
+            Node replacementNode = getReplacementNode(focusRoot);
+            if (focusRoot == root){
+                root = replacementNode;
             }else if(isItALeftChild){
-                parent.left = replacement;
+                parent.left = replacementNode;
             }else{
-                parent.right = replacement;
+                parent.right = replacementNode;
             }
-            replacement.left = focusNode.left;
+            replacementNode.left = focusRoot.right;
         }
         return true;
     }
