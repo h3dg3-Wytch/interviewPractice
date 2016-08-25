@@ -48,7 +48,7 @@ public class BSTTest {
 
         tree.inFixTraversal(tree.root);
 
-        assertEquals(tree.delete(2), true);
+        assertEquals(tree.remove(2), true);
 
         System.out.println("Deleted num 2");
         tree.inFixTraversal(tree.root);

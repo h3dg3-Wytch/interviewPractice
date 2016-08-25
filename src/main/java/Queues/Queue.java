@@ -18,16 +18,16 @@ public class Queue<T> {
             head = tail;
         }else{
             tail.next = node;
-            head = node;
+            tail = tail.next;
         }
-        return;
     }
 
-    public Node dequeue(Node<T> node){
-        if(isEmpty()){
-            return null;
-        }
-        return null;
+    public Node dequeue(){
+            Node node = head;
+            head = head.next;
+            if(isEmpty()) tail = null;
+            System.out.println(node.toString());
+            return node;
     }
 
 

@@ -127,79 +127,76 @@ public class BST {
 //    }
 
 
-    private boolean remove(int key){
+    public boolean remove(int key){
         Node parent = root;
-        Node focusRoot = root;
+        Node focusNode = root;
 
         boolean isItALeftChild = true;
-
-        while (focusRoot.num != key){
-            parent = focusRoot;
-            if(key < focusRoot.num){
+        while(focusNode.num != key){
+            parent = focusNode;
+            if(key < focusNode.num) {
                 isItALeftChild = true;
-                focusRoot = focusRoot.left;
+                focusNode = focusNode.left;
             }else{
                 isItALeftChild = false;
-                focusRoot = focusRoot.right;
+                focusNode = focusNode.right;
             }
-            if(focusRoot == null){
+
+            if(focusNode == null){
                 return false;
             }
         }
-
-        if(focusRoot.left == null && focusRoot.right == null){
-            if(focusRoot == root){
+        if(focusNode.left == null && focusNode.right == null){
+            if(focusNode == root)
                 root = null;
-            }else if(isItALeftChild){
+            else if(isItALeftChild)
                 parent.left = null;
-            }else{
+            else
                 parent.right = null;
-            }
-        }else if(focusRoot.right == null){
-            if(focusRoot == root){
-                root =  focusRoot.left;
-            }else if(isItALeftChild){
-                parent.left = focusRoot.left;
-            }else{
-                parent.right = focusRoot.left;
-            }
-        }else if(focusRoot.left == null){
-            if(focusRoot == root){
-                root = focusRoot.right;
-            }else if(isItALeftChild){
-                parent.left = focusRoot.right;
-            }else{
-                parent.right = focusRoot.right;
-            }
+        }else if(focusNode.right == null){
+            if(focusNode == root)
+                root = focusNode.left;
+            else if(isItALeftChild)
+                parent.left = focusNode.left;
+            else
+                parent.right = focusNode.left;
+        }else if(focusNode.left == null){
+            if(focusNode == root)
+                root = focusNode.right;
+            else if(isItALeftChild)
+                parent.left = focusNode.right;
+            else
+                parent.right = focusNode.right;
         }else{
-            Node replacementNode = getReplacementNode(focusRoot);
-            if (focusRoot == root){
+            Node replacementNode = getReplacementNode(focusNode);
+            if(focusNode == root)
                 root = replacementNode;
-            }else if(isItALeftChild){
+            else if(isItALeftChild)
                 parent.left = replacementNode;
-            }else{
+            else
                 parent.right = replacementNode;
-            }
-            replacementNode.left = focusRoot.right;
+            replacementNode.right = focusNode.left;
         }
         return true;
     }
 
     private Node getReplacementNode(Node replacedNode) {
+
         Node replacementParent = replacedNode;
         Node replacement = replacedNode;
 
-        Node focusNode = replacement.right;
+        Node focusNode = replacedNode.right;
         while(focusNode != null){
             replacementParent = replacement;
             replacement = focusNode;
             focusNode = focusNode.left;
         }
+
         if(replacement != replacedNode.right){
             replacementParent.left = replacement.right;
-            replacement.right = replacementParent.right;
+            replacement.right = replacedNode.right;
         }
-        return  replacement;
+        return replacement;
     }
 
     public void preOrderTraversal(Node focusNode){
