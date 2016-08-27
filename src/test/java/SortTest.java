@@ -1,4 +1,5 @@
 import Sorting.BubbleSort;
+import Sorting.MergeSort;
 import Sorting.SelectionSort;
 import org.junit.Test;
 
@@ -27,5 +28,14 @@ public class SortTest {
         for(int i = 1 ; i < result.length; i++){
             assert largest < result[i];
         }
+    }
+
+    @Test
+    public void mergeSort(){
+        MergeSort mergeSort = new MergeSort();
+        int[] array = {3, 2, 5, 4};
+        int[] tempArray = new int[array.length];
+        mergeSort.mergeSort(array, tempArray,0, array.length -1);
+
     }
 }
