@@ -1,3 +1,4 @@
+import Searching.BinarySearch;
 import Sorting.BubbleSort;
 import Sorting.MergeSort;
 import Sorting.SelectionSort;
@@ -36,6 +37,12 @@ public class SortTest {
         int[] array = {3, 2, 5, 4};
         int[] tempArray = new int[array.length];
         mergeSort.mergeSort(array, tempArray,0, array.length -1);
+    }
 
+    @Test
+    public void binarySearchTest(){
+        BinarySearch search = new BinarySearch();
+        int[] array = {3, 2, 5, 4};
+        System.out.println(search.search(array, 0, array.length, 5));
     }
 }
