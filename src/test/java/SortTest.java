@@ -2,6 +2,7 @@ import Searching.BinarySearch;
 import Sorting.BubbleSort;
 import Sorting.MergeSort;
 import Sorting.SelectionSort;
+import main.java.Sorting.InsertionSort;
 import org.junit.Test;
 
 /**
@@ -44,5 +45,17 @@ public class SortTest {
         BinarySearch search = new BinarySearch();
         int[] array = {3, 2, 5, 4};
         System.out.println(search.search(array, 0, array.length, 5));
+    }
+
+    @Test
+    public void insertionTest(){
+        InsertionSort insertionSort = new InsertionSort();
+        int[] array = {3, 2, 5, 4};
+        int[] result  = insertionSort.sort(array);
+
+        int largest = result[0];
+        for(int i = 1 ; i < result.length; i++){
+            assert largest < result[i];
+        }
     }
 }
