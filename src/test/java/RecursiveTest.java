@@ -29,4 +29,21 @@ public class RecursiveTest {
         }
         return steps(steps - 1) + steps( steps - 2) + steps( steps - 3);
     }
+
+    @Test
+    public void testSpock(){
+        System.out.println(spocksSelection(4, 2));
+    }
+
+    //finding k out of n things
+    public int spocksSelection(int n, int k){
+        if ((n == 0) || (k == 0 ))
+            return 1;
+        else if(k == n)
+            return 1;
+        else if(k > n)
+            return 0;
+        else
+            return spocksSelection(n - 1, k -1) + spocksSelection(n -1, k);
+    }
 }
