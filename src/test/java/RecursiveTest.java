@@ -16,4 +16,17 @@ public class RecursiveTest {
             writeBackwards(s.substring(0, s.length() - 1 ));
         }
     }
+
+    @Test
+    public void testSteps(){
+        System.out.println(steps(4));
+    }
+    private int steps(int steps){
+        if(steps < 0){
+            return 0;
+        }else if(steps == 0){
+            return 1;
+        }
+        return steps(steps - 1) + steps( steps - 2) + steps( steps - 3);
+    }
 }
