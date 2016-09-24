@@ -2,7 +2,7 @@ import Searching.BinarySearch;
 import Sorting.BubbleSort;
 import Sorting.MergeSort;
 import Sorting.SelectionSort;
-import main.java.Sorting.InsertionSort;
+import Sorting.InsertionSort;
 import org.junit.Test;
 
 /**
