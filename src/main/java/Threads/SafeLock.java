@@ -1,7 +1,5 @@
 package Threads;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 

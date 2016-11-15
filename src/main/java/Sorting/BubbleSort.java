@@ -7,7 +7,6 @@ public class BubbleSort {
 
     public int[] sort(int[] array){
 
-
         while(true){
             boolean swapped = false;
             for(int i = 1 ; i < array.length; i++){

@@ -54,4 +54,12 @@ public class BSTTest {
         tree.inFixTraversal(tree.root);
     }
 
+    //hackerrank test
+    @Test
+    public void checkBst(){
+        BST bst = new BST();
+        for(int i = 0; i < 10; i++){
+            //todo binary tree problem
+        }
+    }
 }
