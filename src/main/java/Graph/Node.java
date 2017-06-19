@@ -17,6 +17,13 @@ public class Node {
         this.name = name;
         this.nodes = new ArrayList<>();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Node node = (Node) obj;
+       return name.equals(node.name);
+    }
+
     public Node(String name, int weight){
         this.weight = weight;
         this.name = name;

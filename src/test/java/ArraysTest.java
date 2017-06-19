@@ -40,7 +40,7 @@ public class ArraysTest {
 
     private boolean question1_1(String string){
         Hashtable<Character, Character> hashtable = new Hashtable<>();
-        for(int i = 0; i < string.length(); i++){
+        for(int i  = 0; i < string.length(); i++){
             if(hashtable.contains(string.charAt(i)))
                 return false;
             else
@@ -65,6 +65,32 @@ public class ArraysTest {
         }
         return result;
     }
+
+
+    @Test
+    public void hackerRank(int num){
+
+        StairCase(6);
+
+    }
+
+    public static void StairCase(int n) {
+        int spaces = 0;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < spaces; i++){
+                System.out.print(" ");
+            }
+            System.out.println();
+            for(int j = 0; j < n - spaces; i++){
+                System.out.print("#");
+            }
+            spaces++;
+
+        }
+
+
+    }
+
 
 
 }

@@ -1,9 +1,13 @@
+import AI.BreadthFirstSearch;
+import Graph.BreadthFirst;
 import Searching.BinarySearch;
 import Sorting.BubbleSort;
 import Sorting.MergeSort;
 import Sorting.SelectionSort;
 import Sorting.InsertionSort;
 import org.junit.Test;
+
+import java.awt.*;
 
 /**
  * Created by rex on 8/26/16.
@@ -57,5 +61,37 @@ public class SortTest {
         for(int i = 1 ; i < result.length; i++){
             assert largest < result[i];
         }
+    }
+
+    @Test
+    public void breadthFristSearchTest(){
+        //implemented via main method
+    }
+
+    @Test
+    public void quizTest(){
+        System.out.println(mystery(new int[]{3, 12}));
+        System.out.println(mystery(new int[]{4,2,10,8}));
+
+        int a = 7;
+        int b= 9;
+        Point p1 = new Point();
+        Point p2;
+
+        System.out.println(p2.x);
+
+
+    }
+
+
+    private static int mystery(int[] list){
+        int x = 0;
+        for(int i = 1; i < list.length; i++) {
+            int y = list[i] - list[0];
+            if (y > x) {
+                x = y;
+            }
+        }
+        return x;
     }
 }

@@ -29,5 +29,13 @@ public class ThreadTest {
     }
 
 
+    @Test
+    public void basicThreadTest(){
+
+
+      new HelloThread().run();
+    }
+
+
 
 }
