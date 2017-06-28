@@ -64,21 +64,38 @@ public class ProblemTwo {
     }
 
 
+//    public static int[] getProductsOfAllIntsExceptAtIndex(int[] intArray){
+//
+//        int[] productsWithoutIndex = new int[intArray.length];
+//        int productsSoFar = 1;
+//        for(int i = 0; i < intArray.length; i++){
+//            productsWithoutIndex[i] = productsSoFar;
+//            productsSoFar *= intArray[i];
+//        }
+//
+//        productsSoFar = 1;
+//        for(int i = intArray.length - 1 ; i >=0; i--){
+//            productsWithoutIndex[i] *= productsSoFar;
+//            productsSoFar *= intArray[i];
+//        }
+//
+//        return productsWithoutIndex;
+//    }
+
+
     public static int[] getProductsOfAllIntsExceptAtIndex(int[] intArray){
 
-        int[] productsWithoutIndex = new int[intArray.length];
-        int productsSoFar = 1;
+        int[] result = new int[intArray.length];
         for(int i = 0; i < intArray.length; i++){
-            productsWithoutIndex[i] = productsSoFar;
-            productsSoFar *= intArray[i];
+            int number = 1;
+            for(int j = 0; j < intArray.length; j++){
+                if(i != j){
+                   number *= intArray[j];
+                }
+            }
+            result[i] = number;
         }
-
-        productsSoFar = 1;
-        for(int i = intArray.length - 1 ; i >=0; i--){
-            productsWithoutIndex[i] *= productsSoFar;
-            productsSoFar *= intArray[i];
-        }
-
-        return productsWithoutIndex;
+        return result;
     }
+
 }

@@ -38,7 +38,7 @@ public class ProblemThree {
 
         int highestProductOf2 = intArray[0] * intArray[1];
         int lowestProductOf2 = intArray[0] * intArray[1];
-
+    
         int highestProductOf3 = intArray[0] * intArray[1] * intArray[2];
 
         for(int i = 2; i < intArray.length; i++){
