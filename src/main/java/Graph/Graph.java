@@ -2,14 +2,18 @@ package Graph;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by h3dg3wytch on 11/14/16.
  */
 public class Graph {
 
-    private ArrayList<Node> nodes;
+    private List<Node> nodes;
 
+    public Graph(List<Node> nodes){
+        this.nodes = nodes;
+    }
     public Graph(){
         this.nodes = new ArrayList<>();
     }
@@ -18,7 +22,7 @@ public class Graph {
         nodes.add(node);
     }
 
-    public ArrayList<Node> getAdajecenyList(){
+    public List<Node> getAdajecenyList(){
         return nodes;
     }
 
@@ -31,4 +35,7 @@ public class Graph {
             }
         }
     }
+
+
+
 }
