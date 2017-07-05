@@ -27,23 +27,11 @@ public class ProblemEight {
             this.right = new BinaryTreeNode(rightValue);
             return this.right;
         }
-
-        public boolean superBalanced(BinaryTreeNode node){
-
-            if(node.left != null && node.right!= null){
-                if(node.right.value - node.left.value == 1){
-                    superBalanced(node.right);
-                    superBalanced(node.left);
-                }else{
-                    return false;
-                }
-            }else if(node.left == null && node.right != null){
-                return false;
-            }else if(node.right == null && node.left != null){
-                return false;
-            }
-
-            return true;
-        }
     }
+
+    public static void main(String[] args) {
+
+    }
+
+
 }
