@@ -39,23 +39,23 @@ public class ProblemSeven {
             return  aggregateScoreOfTemps / temps.size();
         }
 
-//        public List<Integer> mode(){
-//            modeOfTemps.
-//            List<Integer> results = new ArrayList<>();
-//
-//            int max = 0;
-//            for(int i : modeOfTemps.keySet()){
-//
-//                if(max < modeOfTemps.get(i)){
-//                    max = modeOfTemps.get(i);
-//                }
-//            }
-//
-//            results.add(max);
-//
-//            return results;
-//
-//        }
+    //        public List<Integer> mode(){
+    //            modeOfTemps.
+    //            List<Integer> results = new ArrayList<>();
+    //
+    //            int max = 0;
+    //            for(int i : modeOfTemps.keySet()){
+    //
+    //                if(max < modeOfTemps.get(i)){
+    //                    max = modeOfTemps.get(i);
+    //                }
+    //            }
+    //
+    //            results.add(max);
+    //
+    //            return results;
+    //
+    //        }
 
         public void insert(int temperature){
             this.min = Math.min(min, temperature);

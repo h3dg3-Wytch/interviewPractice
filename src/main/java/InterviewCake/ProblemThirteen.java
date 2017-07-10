@@ -7,11 +7,6 @@ public class ProblemThirteen {
 
     public static void main(String[] args) {
         String[] words = new String[]{
-                "ptolemaic",
-                "retrograde",
-                "supplant",
-                "undulate",
-                "xenoepist",
                 "asymptote", // <-- rotates here!
                 "babka",
                 "banoffee",
@@ -19,16 +14,40 @@ public class ProblemThirteen {
                 "karpatka",
                 "othellolagkage",
         };
+
+        System.out.println(findRotationPoint(words));
+
     }
 
+
+
     public static int findRotationPoint(String[] words){
-        int floorIndex = -1;
-        int ceilingIndex = words.length;
+        String firstWord = words[0];
 
-        while(floorIndex + 1 < ceilingIndex){
-            int guessIndex = (floorIndex + ceilingIndex) / 2;
+        int floorIndex = 0;
+        int ceilingIndex = words.length - 1;
 
-            if(words)
+        while(floorIndex < ceilingIndex){
+            int guessIndex = floorIndex + ((ceilingIndex - floorIndex) / 2);
+
+            if(words[guessIndex].compareTo(firstWord) >= 0){
+                floorIndex = guessIndex;
+            }else{
+                ceilingIndex = guessIndex;
+            }
+
+            // if floor and ceiling have converged
+            if(floorIndex + 1 == ceilingIndex){
+                // between floor and ceiling is where we flipped to the beginning
+                // so ceiling is alphabetically first
+                break;
+            }
+
+
         }
+
+
+
+        return ceilingIndex;
     }
 }
