@@ -20,5 +20,6 @@ public class FourtyOne {
         for (int i = 0; i < n; i++) {
             positionInCycle = intArray[positionInCycle - 1];
         }
+        return -1;
     }
 }

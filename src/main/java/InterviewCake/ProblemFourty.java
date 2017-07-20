@@ -10,7 +10,7 @@ public class ProblemFourty {
     public static void main(String[] args) {
 
         int[] array = {1, 2, 2, 3, 4, 5, 6};
-        System.out.println(findDuplicate(array));
+        //System.out.println(findDuplicate(array));
 
     }
 
@@ -47,5 +47,5 @@ public class ProblemFourty {
 //    }
 
     //midway solution
-    public static
+
 }
