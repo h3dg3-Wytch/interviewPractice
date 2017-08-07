@@ -83,7 +83,6 @@ public class ProblemEight {
                 }
             }
         }
-
         return true;
     }
 

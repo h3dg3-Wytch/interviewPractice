@@ -1,6 +1,8 @@
 package InterviewCake;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by rex on 6/29/17.
@@ -11,6 +13,22 @@ public class ProblemThirty {
 
         System.out.println(isAPalindrome("ivvvicc"));
 
+    }
+
+
+    public static boolean isPalindromePermutation(String theString){
+        Set<Character> unpairedCharacter = new HashSet<>();
+
+        for(char c : theString.toCharArray()){
+
+            if(unpairedCharacter.contains(c)){
+                unpairedCharacter.remove(c);
+            }else{
+                unpairedCharacter.add(c);
+            }
+        }
+
+        return unpairedCharacter.size() <= 1;
     }
 
     public static boolean isAPalindrome(String s){
